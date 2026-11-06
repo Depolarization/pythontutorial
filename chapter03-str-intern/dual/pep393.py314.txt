@@ -1,0 +1,39 @@
+== PEP 393：每格 1 / 2 / 4 字节的紧凑表示 ==
+PY 版本 -> 3.14.7
+--------------------------------------------------------------
+== 三字符基准：getsizeof = 头部 + 每格宽度 x 码点数 ==
+SZ a -> 42 B | len=1 | ASCII U+0061，每格 1 字节
+SZ kana -> 60 B | len=1 | 平假名 U+3042，每格 2 字节
+SZ u20000 -> 64 B | len=1 | 扩展B区 U+20000，每格 4 字节
+SZ empty -> 41 B | 空串也要头部：ASCII 头 40 + 宽 nul 1
+--------------------------------------------------------------
+== ctypes 直读对象头 state 位域：kind 字段就是每格字节数 ==
+KIND a -> kind=1 ascii=1 | 42 B | 纯 ASCII 走 1 字节格
+KIND e9-xin -> kind=1 compact=1 ascii=0 static=0 | 58 B | 运行期新造的 latin1 串，照样 1 字节格
+KIND abe -> kind=1 compact=1 ascii=0 static=0 | 60 B | 混入一个 é 也只是 kind=1
+KIND kana -> kind=2 compact=1 ascii=0 static=0 | 60 B | U+3042 超过 0xFF，升 2 字节格
+KIND mix -> kind=2 compact=1 ascii=0 static=0 | 62 B | aあ 混排：整串迁就最宽的，kind=2
+KIND u20000 -> kind=4 compact=1 ascii=0 static=0 | 64 B | 超 0xFFFF，升 4 字节格
+--------------------------------------------------------------
+== 每格成本斜线：串越长，每多一个码点加 kind 字节 ==
+SLOPE kind1-ascii -> 42(1) 43(2) 44(3)  每码点 +1 B
+SLOPE kind1-latin1 -> 59(2) 60(3)  每码点 +1 B
+SLOPE kind2-ucs2 -> 60(1) 62(2) 64(3)  每码点 +2 B
+SLOPE kind4-ucs4 -> 64(1) 68(2) 72(3)  每码点 +4 B
+--------------------------------------------------------------
+== 逐字节 dump：编码后的字节宽 ≠ 内存格宽 ==
+DUMP a utf-8 -> 61 | 1 B | 1 B/码点
+DUMP a utf-16-le -> 61 00 | 2 B | 2 B/码点
+DUMP a utf-32-le -> 61 00 00 00 | 4 B | 4 B/码点
+DUMP kana utf-8 -> e3 81 82 | 3 B | 3 B/码点
+DUMP kana utf-16-le -> 42 30 | 2 B | 2 B/码点
+DUMP kana utf-32-le -> 42 30 00 00 | 4 B | 4 B/码点
+DUMP u20000 utf-8 -> f0 a0 80 80 | 4 B | 4 B/码点
+DUMP u20000 utf-16-le -> 40 d8 00 dc | 4 B | 4 B/码点
+DUMP u20000 utf-32-le -> 00 00 02 00 | 4 B | 4 B/码点
+--------------------------------------------------------------
+== 头部账本（实测拟合，两代解释器一致）==
+HDR ascii -> 40 + 1 x (n+1) = 41+n   例 a=42 aa=43 aaa=44
+HDR nonascii -> 56 + kind x (n+1)   头部多 16 B：utf8_length + utf8 指针
+HDR formulas -> kind1-latin1 57+n | kind2 58+2n | kind4 60+4n
+HDR singleton -> 0x80~0xFF 的 1 字符缓存单例是静态分配对象，实测 61 B（新造同内容 58 B）

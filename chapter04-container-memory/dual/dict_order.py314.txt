@@ -1,0 +1,23 @@
+VERSION	3.14.7
+INS	int 键按 7,3,9,1,5 插入 → list(d)=[7, 3, 9, 1, 5]（与插入一致，与哈希值无关）
+STRINS	str 键按 durian,apple,cherry 插入 → ['durian', 'apple', 'cherry']
+REASSIGN	已有键倒序重赋值 → 顺序不变 [7, 3, 9, 1, 5]（True）
+DELREINS	del 9 再重插 → 挪到末尾 [7, 3, 1, 5, 9]（True）
+VIEW	keys() 是活的视图：len 5→6，'zz' in ks=True，不复制数据
+ALIGN	keys() 与 values() 逐位配对全部命中=True（键集与值集来自同一份紧凑 entries）
+SPLIT	实例 __dict__（分裂表·共享键）: 20000 实例 ×3 属性 = 3.99 MB，每摊 199 字节
+SPLIT	独立 dict 对照: 20000 个 3 键 dict = 5.74 MB，每摊 287 字节
+SPLIT	键表共享只存值 → 省 30%
+DSTEP	n=0 bytes=64
+DSTEP	n=1 bytes=224
+DSTEP	n=5 bytes=224
+DSTEP	n=6 bytes=352
+DSTEP	n=10 bytes=352
+DSTEP	n=11 bytes=632
+DSTEP	n=21 bytes=632
+DSTEP	n=22 bytes=1168
+DSTEP	n=42 bytes=1168
+DSTEP	n=43 bytes=2264
+DSTEP	n=85 bytes=2264
+DSTEP	n=86 bytes=4688
+SELF-OK	3/3

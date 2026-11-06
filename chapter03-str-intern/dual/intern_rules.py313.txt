@@ -1,0 +1,26 @@
+== 字面量 intern：谁能自动进 intern 表 ==
+PY 版本 -> 3.13.14
+--------------------------------------------------------------
+== 同一模块里的两个函数：编译单元内常量合并 ==
+IN ident-samemod -> True | 标识符形状字面量，两个函数同一对象
+IN space-samemod -> True | 带空格字面量同模块也同对象：这是常量合并，不是 intern 的证据
+--------------------------------------------------------------
+== 两个独立编译单元：intern 表是全局的，常量合并不是 ==
+IN ident-crossunit -> True | 标识符形状：进了全局 intern 表，跨单元同对象
+IN space-crossunit -> False | 带空格：没进 intern 表，各造各的对象
+--------------------------------------------------------------
+== 运行期拼接：内容相同、身份不同 ==
+RT eq -> True | run1 == run2，内容一样
+RT is -> False | run1 is run2，但身份不同
+RT is-literal -> False | run1 is 字面量：内容一样也没用，运行期不查 intern 表
+--------------------------------------------------------------
+== sys.intern：手动把串放进 intern 表 ==
+IA intern-two -> True | intern(run1) is intern(run2)，收拢为同一对象
+IA intern-literal -> True | intern 后和字面量是同一个对象：同一内容只有一个真身
+IA intern-space -> True | intern 不挑形状，谁都能手动进
+--------------------------------------------------------------
+== intern 的实际收益：1 万个重复 token 收拢成 1 个对象 ==
+TK before -> 10000 个不同 id（1 万个内容重复的串对象）
+TK after -> 10 个不同 id（intern 后只剩 10 个真身）
+TK saved -> 约 526 KB 字符串本体
+CC 规则 -> 标识符形状的字面量编译期自动 intern；运行期拼接的串要手动 sys.intern

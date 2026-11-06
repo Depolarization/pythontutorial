@@ -1,0 +1,11 @@
+VERSION	3.13.14
+CHAIN -> __getattribute__ > data descriptor > 实例 __dict__ > 类 __dict__ > __getattr__
+DD-VS-INST -> 'data descriptor 的值'
+ND-VS-INST -> '实例字典的值'
+PLAIN -> '类字典的普通值'
+MISSING -> '__getattr__ 兜底值'
+LOG-MISSING -> GA:__dict__ GA:__dict__ GA:dd GA:nd GA:plain GA:no_such FB:no_such
+CLASS-GET-IS-DESC -> True
+INST-GET-IS-DESC -> False
+INST-DICT-HAS-DD -> True
+SET-DD -> AttributeError: data descriptor 只读，实例字典说了不算

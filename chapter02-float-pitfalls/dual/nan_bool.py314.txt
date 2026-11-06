@@ -1,0 +1,26 @@
+== nan 的 == 与 in ==
+NB nan == nan -> False
+NB nan != nan -> True（IEEE 754 规定 nan 与任何值比较都是不等）
+NB nan is nan -> True（同一个对象）
+NB nan in [nan] -> True（成员判断先比 identity，再比 ==）
+NB 两个不同 nan 对象 == -> False
+NB 两个不同 nan 对象 in -> False（identity 不等、== 也 False，所以找不到）
+NB [nan].count(nan) -> 1
+NB [nan].index(nan) -> 0
+NB [nan] == [nan] -> True（容器比较同样走 identity 短路）
+NB dict 用 nan 当键取值 -> ok（哈希表也是 identity 优先）
+NB 换一个 nan 对象查 dict -> KeyError（值查不到）
+NB math.isnan(nan) -> True（判 nan 唯一正解）
+NB math.nan == math.nan -> False
+== True == 1：bool 是 int 的子类 ==
+BB isinstance(True, int) -> True
+BB issubclass(bool, int) -> True
+BB bool.__mro__ -> (bool, int, object)
+BB True == 1 -> True；False == 0 -> True
+BB True is int(1) -> False（值相等但对象不同：True 是 bool，1 是 int）
+BB hash(True) == hash(1) -> True
+BB {True: 'a', 1: 'b'} -> {True: 'b'}（True 和 1 是同一个键，值被覆盖）
+BB True + True -> 2
+BB sum([True, True, False, True]) -> 3（bool 直接当数算）
+BB True.bit_length() -> 1（int 的方法全盘继承）
+BB ['a', 'b'][True] -> b（True 当下标 1 用）

@@ -1,0 +1,11 @@
+PY 3.13.14
+GCON   10 万次双向环创建 -> 耗时 0.022 s
+GCON   期间自动回收 gen0=92 gen1=8 gen2=0 次
+GCON   收尾 gc.collect() -> 只剩 96 个漏网
+GCOFF  10 万次双向环创建 -> 耗时 0.012 s
+GCOFF  期间自动回收 gen0=0 次（一次都没跑）
+GCOFF  gc.get_count() -> (200007, 0, 0)（gen0 计数远超阈值）
+GCOFF  手动 gc.collect() -> 收回 200000 个（≈10 万对环节点）
+SAVEALL gc.collect() -> 返回 2，gc.garbage 增量 2
+SAVEALL 抓到的不可达对象 -> ['环甲', '环乙']
+CLEAN  清理后 gc.garbage -> 0 条，DEBUG 已关

@@ -1,0 +1,12 @@
+VERSION	3.13.14	C:\Users\oscur\.workbuddy-ai\binaries\python\versions\3.13.12\python.exe
+CORES	os.cpu_count()=24
+WORKLOAD	8 个区间 × 60000 宽 = 数到 480002；每种配置跑 3 轮取最快
+CFG	serial	1	0.918	1.00	40005	0.000
+CFG	thread	1	0.950	0.97	40005	0.000
+CFG	thread	2	0.927	0.99	40005	0.000
+CFG	thread	4	1.191	0.77	40005	0.000
+CFG	thread	8	1.170	0.78	40005	0.000
+CFG	proc	2	0.556	1.65	40005	0.060
+CFG	proc	4	0.360	2.55	40005	0.058
+CFG	proc	8	0.285	3.22	40005	0.060
+CHECK	九种配置数出的质数总数是否相同：是

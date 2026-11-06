@@ -1,0 +1,9 @@
+PY 3.14.7
+NEXT    -> 1（生成器暂停在第一个 yield）
+GENEXIT -> 在 yield 暂停点收到 GeneratorExit
+CLOSED  -> close() 返回，生成器已关闭
+NEXT2   -> 1
+IGNORE  -> RuntimeError: generator ignored GeneratorExit
+ALIVE   -> 生成器还挂着引用：CLEANED=[]
+DROPPED -> 引用已丢 + gc.collect()：CLEANED=['finally 跑了']
+WARN    -> RuntimeWarning: 生成器没耗尽就被丢弃：收尾拖到最后一个引用消失才跑

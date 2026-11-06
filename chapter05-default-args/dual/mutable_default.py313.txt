@@ -1,0 +1,21 @@
+EXPL -> 3.13.14
+ACC 1 -> ['a']
+ACC 2 -> ['a', 'b']
+ACC 3 -> ['a', 'b', 'c']
+ACC len -> 3
+ACC defaults -> (['a', 'b', 'c'],)
+SAME 1 defaults0 is TARGET -> True
+SAME 2 返回值 is TARGET -> True
+SAME 3 TARGET 被改写 -> ['出厂', 1, 2, 3]
+SAME 4 __defaults__ 元组 -> (['出厂', 1, 2, 3],)
+TIMES def 时求值次数 -> 1
+TIMES 3 次调用后求值次数 -> 1
+TIMES 两次缺省调用同一对象 -> True
+SENT 1 第一次 -> ['x']
+SENT 2 第二次 -> ['y']
+SENT 3 两次结果 is -> False
+SENT 4 safe __defaults__ -> (None,)
+IMMUT str -> p! p! p!
+IMMUT tuple -> ('#',) ('#',)
+IMMUT int -> 1 1
+IMMUT 原默认未被改 -> ('p',) ((),) (0,)

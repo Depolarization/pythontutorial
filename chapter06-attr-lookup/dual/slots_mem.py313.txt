@@ -1,0 +1,20 @@
+VERSION	3.13.14
+GETSIZE WITH-DICT -> 48
+GETSIZE WITH-SLOTS -> 56
+GETSIZE-EQUAL -> False
+GETSIZE DICT-ALONE -> 296
+COMBO WITH-DICT -> 344
+SLOTS-EXTRA -> AttributeError: 'WithSlots' object has no attribute 'w' and no __dict__ for setting new attributes
+CHILD-DICT -> 可以随便加：实例有 __dict__
+CHILD HAS-DICT -> True
+FULL-SLOTS -> AttributeError: 'FullSlots' object has no attribute 'z' and no __dict__ for setting new attributes
+FULL HAS-DICT -> False
+N-INSTANCES -> 1000000
+TRACE HOLDER -> 8000000
+TRACE WITH-DICT -> 136443360
+TRACE WITH-SLOTS -> 96440512
+PER-INST WITH-DICT -> 128.44336
+PER-INST WITH-SLOTS -> 88.440512
+SAVED PER-INST -> 40.002848000000014
+SAVED RATIO -> 1.4523136184467138
+MILLION-SAVED -> 40002848.000000015

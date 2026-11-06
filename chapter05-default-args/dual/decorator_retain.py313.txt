@@ -1,0 +1,10 @@
+EXPL -> 3.13.14
+RETAIN with bytes -> 39841600
+RETAIN with MB -> 38.0
+RETAIN without bytes -> 6536
+RETAIN without KB -> 6.4
+RETAIN ratio -> 6095.7
+CLOSURE count -> 1
+CLOSURE type -> list
+CLOSURE 内容 -> [10, 20, 30]
+CLOSURE handle 调用 -> 3

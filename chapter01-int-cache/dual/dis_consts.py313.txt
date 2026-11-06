@@ -1,0 +1,18 @@
+PY 3.13.14
+SRC 源码里 257 写了 2 次 -> co_consts 里 1 个 257 对象
+CONSTS co_consts -> (257, None)
+DIS|   0           RESUME                   0
+DIS| 
+DIS|   1           LOAD_CONST               0 (257)
+DIS|               STORE_NAME               0 (a)
+DIS| 
+DIS|   2           LOAD_CONST               0 (257)
+DIS|               STORE_NAME               1 (b)
+DIS|               RETURN_CONST             1 (None)
+FUNCS fa.co_consts -> (None, 257)
+FUNCS fb.co_consts -> (None, 257)
+FUNCS 两表的 257 同一对象 -> True
+FUNCS fa() is fb() -> True
+TWOCODE 两个独立编译的 257 -> False
+REF 函数常量里的 257 -> 4294967295
+REF 再持一个引用后 -> 4294967295

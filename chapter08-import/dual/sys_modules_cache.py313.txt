@@ -1,0 +1,12 @@
+[cache_demo] 模块体第 1 次执行
+EXEC-AFTER-FIRST -> 1
+EXEC-AFTER-SECOND -> 1
+SAME-OBJ -> True
+IN-SYSMODULES -> True
+CAPTURED -> v1
+MODULE-ATTR-NOW -> v2
+REFETCH -> v2
+[cache_demo] 模块体第 2 次执行
+EXEC-AFTER-DEL -> 2
+REBORN-IS-OLD -> False
+REBORN-VALUE -> v1

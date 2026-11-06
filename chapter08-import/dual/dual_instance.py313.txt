@@ -1,0 +1,17 @@
+[dualmod] 模块体执行，__name__=_dualmod
+PROBE-NAME -> __main__
+IMPORTED-COUNT -> 2
+DOUBLE-IMPORT-SAME -> True
+--- 子进程 python _dualmod.py ---
+[dualmod] 模块体执行，__name__=__main__
+[dualmod] 脚本直跑：bump() -> 1
+[dualmod] 这个实例的 COUNT = 1
+SCRIPT-NAME -> __main__
+SCRIPT-COUNT -> 1
+[dualmod] 模块体执行，__name__=__main__
+[dualmod] 脚本直跑：bump() -> 1
+[dualmod] 这个实例的 COUNT = 1
+RUNPY-NAME -> __main__
+RUNPY-COUNT -> 1
+IMPORTED-STILL -> 2
+STATE-NOT-SHARED -> True

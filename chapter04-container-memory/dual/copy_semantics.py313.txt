@@ -1,0 +1,16 @@
+VERSION	3.13.14
+STRUCT	原始 = [[1, 2], {'x': 0}, 'hello']
+COPY	a[:]          新外壳=True 内层list同对象=True 内层dict同对象=True
+COPY	list(a)       新外壳=True 内层list同对象=True 内层dict同对象=True
+COPY	copy.copy     新外壳=True 内层list同对象=True 内层dict同对象=True
+COPY	copy.deepcopy 新外壳=True 内层list同对象=False 内层dict同对象=False
+NOTE	每次全新原始结构：通过拷贝给内层 list 追加、给内层 dict 改值，再看原始是否被牵连
+MUT	a[:]          改内层list→原始跟着变=True  改内层dict→原始跟着变=True
+MUT	list(a)       改内层list→原始跟着变=True  改内层dict→原始跟着变=True
+MUT	copy.copy     改内层list→原始跟着变=True  改内层dict→原始跟着变=True
+MUT	copy.deepcopy 改内层list→原始跟着变=False  改内层dict→原始跟着变=False
+REPLACE	a[:]          把 c[0] 整个换成新 list → 原始第0槽=[1, 2]（任何拷贝都不会牵连）
+REPLACE	list(a)       把 c[0] 整个换成新 list → 原始第0槽=[1, 2]（任何拷贝都不会牵连）
+REPLACE	copy.copy     把 c[0] 整个换成新 list → 原始第0槽=[1, 2]（任何拷贝都不会牵连）
+REPLACE	copy.deepcopy 把 c[0] 整个换成新 list → 原始第0槽=[1, 2]（任何拷贝都不会牵连）
+SELF-OK	8/8

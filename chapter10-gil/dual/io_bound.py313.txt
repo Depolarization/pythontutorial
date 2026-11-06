@@ -1,0 +1,11 @@
+VERSION	3.13.14	C:\Users\oscur\.workbuddy-ai\binaries\python\versions\3.13.12\python.exe
+PLAN	每请求 4.0 ms 模拟 I/O 等待，共 160 个请求，线程数 8
+NET	外部网络 www.python.org:443 可达（60 ms）—— 本探针不依赖它
+FILE	serial	1	0.722	1.00	655360
+FILE	thread	8	0.092	7.86	655360
+FILE	asyncio	8	0.139	5.19	655360
+SOCK	port	55027	0.000	0.00	0
+SOCK	serial	1	3.233	1.00	640
+SOCK	thread	8	0.355	9.11	640
+SOCK	asyncio	160	0.074	43.55	640
+CLEAN	临时目录已删除：D:\Agent\tmp\py-topic10\io_25cvjfc3

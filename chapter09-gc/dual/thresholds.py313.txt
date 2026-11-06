@@ -1,0 +1,12 @@
+PY 3.13.14
+THRESHOLD gc.get_threshold() -> (2000, 10, 10)
+COUNT   gc.get_count() -> (84, 3, 0)
+STATS   gen0 -> collections=3 collected=24 uncollectable=0
+STATS   gen1 -> collections=0 collected=0 uncollectable=0
+STATS   gen2 -> collections=0 collected=0 uncollectable=0
+WORK    挂 10000 个存活列表 -> 期间 gen0 自动回收 5 次
+PREDICT 预期 ≈ 10000//阈值0 = 5 次（本机阈值0=2000）
+COLLECT 干净堆全量       -> 0.19 ms（收回 0 个）
+COLLECT 20万存活对象全量 -> 17.38 ms（收回 0 个）
+COLLECT 清掉后再全量     -> 0.56 ms（收回 0 个）
+CB      自动回收 30 次 -> 最大停顿 1.01 ms（gen1），累计 1.87 ms

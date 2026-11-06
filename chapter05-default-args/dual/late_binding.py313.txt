@@ -1,0 +1,15 @@
+EXPL -> 3.13.14
+LB listcomp -> [2, 2, 2]
+LB forloop -> [2, 2, 2]
+LB handlers -> [20, 20, 20]
+CELL 0 -> 2
+CELL 1 -> 2
+CELL 2 -> 2
+CELL same -> True
+CELL 循环变量 j -> 2
+FIX1 调用 -> [0, 1, 2]
+FIX1 defaults -> [0, 1, 2]
+FIX2 调用 -> [0, 1, 2]
+FIX2 args -> [(0,), (1,), (2,)]
+FIX3 调用 -> [0, 1, 2]
+FIX3 cells -> [0, 1, 2]

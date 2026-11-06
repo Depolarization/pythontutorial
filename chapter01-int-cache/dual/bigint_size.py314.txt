@@ -1,0 +1,23 @@
+PY 3.14.7
+INTINFO bits_per_digit=30 sizeof_digit=4
+POWDEC 2**1000 十进制位数 -> 302
+POWBIT 2**1000 二进制位数 -> 1001
+POWSIZE 2**1000 __sizeof__ -> 160
+FLOAT float(2**1000) -> 成功（在 float 上限内）
+FLOAT float(2**1024) -> OverflowError
+SIZE 2**0    -> bit_length=1     __sizeof__=28
+SIZE 2**1    -> bit_length=2     __sizeof__=28
+SIZE 2**29   -> bit_length=30    __sizeof__=28
+SIZE 2**30   -> bit_length=31    __sizeof__=32
+SIZE 2**59   -> bit_length=60    __sizeof__=32
+SIZE 2**60   -> bit_length=61    __sizeof__=36
+SIZE 2**89   -> bit_length=90    __sizeof__=36
+SIZE 2**90   -> bit_length=91    __sizeof__=40
+SIZE 2**119  -> bit_length=120   __sizeof__=40
+SIZE 2**120  -> bit_length=121   __sizeof__=44
+SIZE 2**999  -> bit_length=1000  __sizeof__=160
+SIZE 2**1000 -> bit_length=1001  __sizeof__=160
+STEPS 1..120 里 sizeof 增长的 n -> [30, 60, 90, 120]
+FORMULA __sizeof__ == 24 + 4*ceil((n+1)/30) 对拍 n=0..300 -> True
+STRLIMIT len(str(2**1000)) -> 302（< 4300 可以转）
+STRLIMIT len(str(2**20000)) -> ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit

@@ -1,0 +1,11 @@
+PY 3.13.14
+YIELD 1 -> 1
+YIELD 2 -> 2
+STOPVAL -> value='FINAL' args=('FINAL',)
+FORGET  -> [1, 2]（循环体只拿到 yield 的值，FINAL 被 for 扔掉）
+DRIVE   -> [1, 2] + return 'FINAL'
+PATH    -> yield:'i1'  ->  yield:'i2'  ->  return:'outer[mid[inner-OK]]'
+TREE 1  -> inner:  yield i1, i2; return 'inner-OK'
+TREE 2  -> mid:    yield from inner() 收到 'inner-OK'; return 'mid[inner-OK]'
+TREE 3  -> outer:  yield from mid() 收到 'mid[inner-OK]'; return 'outer[mid[inner-OK]]'
+CORO    -> 驱动完成 StopIteration.value='协程的返回值'（await 拿到的就是它）

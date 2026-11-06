@@ -1,0 +1,11 @@
+VERSION	3.14.7
+DIAMOND1 MRO -> D B C A object
+DIAMOND1 CALL -> D -> B -> C -> A
+MIXIN1 MRO -> L1 Base Mixin object
+MIXIN1 CALL -> Base
+MIXIN2 MRO -> L2 Mixin Base object
+MIXIN2 CALL -> Mixin
+DIAMOND2 MRO -> Leaf2 M1 M2 Top object
+DIAMOND2 CALL -> M1 -> Top
+MRO-ERROR1 -> TypeError: Cannot create a consistent method resolution order (MRO) for bases Base, Mixin
+MRO-ERROR2 -> TypeError: Cannot create a consistent method resolution order (MRO) for bases X, Y

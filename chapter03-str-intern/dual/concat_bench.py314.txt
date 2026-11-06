@@ -1,0 +1,46 @@
+== 六种拼接横评：2 万段文本 ==
+PY 版本 -> 3.14.7
+CB data -> 20000 段 x 12 码点（中文 内部 2 字节/格）| 成品 240000 码点 / 507 KB
+--------------------------------------------------------------
+== 耗时曲线：三种规模各 3 次取最优 ==
+TN pluseq 5000 -> 0.0003 s
+TN pluseq 10000 -> 0.0006 s
+TN pluseq 20000 -> 0.0014 s
+ROW pluseq -> += 就地拼接 | 2万段  0.0014 s | 结果正确 True
+TN join 5000 -> 0.0001 s
+TN join 10000 -> 0.0002 s
+TN join 20000 -> 0.0005 s
+ROW join -> list+join | 2万段  0.0005 s | 结果正确 True
+TN stringio 5000 -> 0.0002 s
+TN stringio 10000 -> 0.0004 s
+TN stringio 20000 -> 0.0010 s
+ROW stringio -> io.StringIO | 2万段  0.0010 s | 结果正确 True
+TN fstring 5000 -> 0.0059 s
+TN fstring 10000 -> 0.0223 s
+TN fstring 20000 -> 0.1252 s
+ROW fstring -> f-string 累加 | 2万段  0.1252 s | 结果正确 True
+TN percent 5000 -> 0.0065 s
+TN percent 10000 -> 0.0236 s
+TN percent 20000 -> 0.1141 s
+ROW percent -> % 累加 | 2万段  0.1141 s | 结果正确 True
+TN reduce 5000 -> 0.0061 s
+TN reduce 10000 -> 0.0249 s
+TN reduce 20000 -> 0.1131 s
+ROW reduce -> reduce(add) | 2万段  0.1131 s | 结果正确 True
+--------------------------------------------------------------
+== tracemalloc 峰值：拼 2 万段时最多同时压着多少内存 ==
+PK pluseq ->    468.8 KB | += 就地拼接，成品 507 KB
+PK join ->    637.7 KB | list+join，成品 507 KB
+PK stringio ->   1172.1 KB | io.StringIO，成品 507 KB
+PK fstring ->    937.6 KB | f-string 累加，成品 507 KB
+PK percent ->    937.6 KB | % 累加，成品 507 KB
+PK reduce ->    937.6 KB | reduce(add)，成品 507 KB
+--------------------------------------------------------------
+== 增长倍率：段数 x4（5千->2万），耗时 x几 ==
+GR pluseq -> x3 | 线性应约 x4，二次方应约 x16
+GR join -> x3 | 线性应约 x4，二次方应约 x16
+GR stringio -> x5 | 线性应约 x4，二次方应约 x16
+GR fstring -> x13 | 线性应约 x4，二次方应约 x16
+GR percent -> x12 | 线性应约 x4，二次方应约 x16
+GR reduce -> x14 | 线性应约 x4，二次方应约 x16
+CC join-stringio -> 一次到位线性；fstring-percent-reduce -> 每步都造新串，天然 O(n^2)

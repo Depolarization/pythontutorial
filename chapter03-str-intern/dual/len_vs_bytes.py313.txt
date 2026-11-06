@@ -1,0 +1,28 @@
+== len 数码点，encode 数字节 ==
+PY 版本 -> 3.13.14
+--------------------------------------------------------------
+== 同一批串：len（码点）vs 三种编码的字节数 ==
+LN ascii -> len=3 码点 | utf-8 3 B | utf-16-le 6 B | utf-32-le 12 B | 纯 ASCII
+LN kana -> len=3 码点 | utf-8 9 B | utf-16-le 6 B | utf-32-le 12 B | 日文假名
+LN astral -> len=1 码点 | utf-8 4 B | utf-16-le 4 B | utf-32-le 4 B | 扩展B区单字 U+20000
+LN mixed -> len=3 码点 | utf-8 8 B | utf-16-le 8 B | utf-32-le 12 B | 三种混排
+LN combine -> len=2 码点 | utf-8 3 B | utf-16-le 4 B | utf-32-le 8 B | e + 组合尖音符
+--------------------------------------------------------------
+== utf-16 代理对：1 个码点占 2 个码元 ==
+SU len -> len('U+20000') = 1 码点
+SU bytes -> 40 d8 00 dc | 4 B = 2 个 16 位码元
+SU units -> 40d8 + 00dc | 高位代理 + 低位代理
+SU other -> utf-8 4 B / utf-32-le 4 B | utf-8 用 4 字节，utf-32 用 1 格
+--------------------------------------------------------------
+== 编解码往返：decode(encode(s)) == s ==
+RT ascii -> utf-8:True utf-16-le:True utf-32-le:True
+RT kana -> utf-8:True utf-16-le:True utf-32-le:True
+RT astral -> utf-8:True utf-16-le:True utf-32-le:True
+RT mixed -> utf-8:True utf-16-le:True utf-32-le:True
+RT combine -> utf-8:True utf-16-le:True utf-32-le:True
+RT all -> True | 全部样本 x 三种编码
+--------------------------------------------------------------
+== 往返的边界：非法字节当场翻脸 ==
+BF strict -> UnicodeDecodeError: invalid start byte
+BF replace -> '��A' | errors=replace 换成占位符不报错
+CC len 是码点数：utf-8 里 1~4 字节、utf-16 里 1~2 码元、utf-32 恒 1 格，len 全都不管

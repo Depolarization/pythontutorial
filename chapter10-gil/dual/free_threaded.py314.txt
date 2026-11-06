@@ -1,0 +1,15 @@
+VERSION	3.14.7	C:\Python314\python.exe
+PLAN	单线程 8 份质数计算 ×2 轮取快；2/4/8 线程同总量；竞态 4 线程 × 250000 次
+FT_FOUND	D:/Agent/tmp/py-topic10/ft/python3.14t.exe
+BUILD	本解释器	3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]	GIL=True	单线程 0.900 s	线程切换 5.00 ms
+BUILD_THREAD	本解释器	2	0.903	1.00
+BUILD_THREAD	本解释器	4	1.187	0.76
+BUILD_THREAD	本解释器	8	1.108	0.81
+BUILD_RACE	本解释器	0	1000000	0.00%
+BUILD	free-threaded	3.14.10 free-threading build (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:07) [MSC v.1944 64 bit (AMD64)]	GIL=False	单线程 0.905 s	线程切换 5.00 ms
+BUILD_THREAD	free-threaded	2	0.497	1.82
+BUILD_THREAD	free-threaded	4	0.338	2.68
+BUILD_THREAD	free-threaded	8	0.259	3.49
+BUILD_RACE	free-threaded	680282	1000000	68.03%
+TAX	单线程性能：ft ÷ 本解释器 = 1.01（0.905 s vs 0.900 s）
+SCALE	4 线程加速比：本解释器 0.76× / ft 2.68×

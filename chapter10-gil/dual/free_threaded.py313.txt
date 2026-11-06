@@ -1,0 +1,15 @@
+VERSION	3.13.14	C:\Users\oscur\.workbuddy-ai\binaries\python\versions\3.13.12\python.exe
+PLAN	单线程 8 份质数计算 ×2 轮取快；2/4/8 线程同总量；竞态 4 线程 × 250000 次
+FT_FOUND	D:/Agent/tmp/py-topic10/ft/python3.14t.exe
+BUILD	本解释器	3.13.14 (main, Jun 11 2026, 04:04:46) [MSC v.1944 64 bit (AMD64)]	GIL=True	单线程 0.919 s	线程切换 5.00 ms
+BUILD_THREAD	本解释器	2	0.932	0.99
+BUILD_THREAD	本解释器	4	1.239	0.74
+BUILD_THREAD	本解释器	8	1.160	0.79
+BUILD_RACE	本解释器	0	1000000	0.00%
+BUILD	free-threaded	3.14.10 free-threading build (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:07) [MSC v.1944 64 bit (AMD64)]	GIL=False	单线程 0.909 s	线程切换 5.00 ms
+BUILD_THREAD	free-threaded	2	0.496	1.83
+BUILD_THREAD	free-threaded	4	0.341	2.67
+BUILD_THREAD	free-threaded	8	0.264	3.44
+BUILD_RACE	free-threaded	670756	1000000	67.08%
+TAX	单线程性能：ft ÷ 本解释器 = 0.99（0.909 s vs 0.919 s）
+SCALE	4 线程加速比：本解释器 0.74× / ft 2.67×

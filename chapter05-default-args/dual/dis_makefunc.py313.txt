@@ -1,0 +1,100 @@
+EXPL -> 3.13.14
+DISA|  0           RESUME                   0
+DISA|
+DISA|  1           BUILD_LIST               0
+DISA|              BUILD_TUPLE              1
+DISA|              LOAD_CONST               0 (<code object f at 0x…, file "<probe>", line 1>)
+DISA|              MAKE_FUNCTION
+DISA|              SET_FUNCTION_ATTRIBUTE   1 (defaults)
+DISA|              STORE_NAME               0 (f)
+DISA|              RETURN_CONST             1 (None)
+MAKEFUNC defaults -> ([],)
+MAKEFUNC 类型 -> tuple
+MAKEFUNC same list -> True
+MAKEFUNC 3 次调用后 -> [1, 1, 1]
+CELLVARS 外层帧 -> ('i',)
+DISB|  --           MAKE_CELL                0 (i)
+DISB|
+DISB|   0           RESUME                   0
+DISB|
+DISB|   1           LOAD_NAME                0 (range)
+DISB|               PUSH_NULL
+DISB|               LOAD_CONST               0 (3)
+DISB|               CALL                     1
+DISB|               GET_ITER
+DISB|               LOAD_FAST_AND_CLEAR      0 (i)
+DISB|               MAKE_CELL                0 (i)
+DISB|               SWAP                     2
+DISB|       L1:     BUILD_LIST               0
+DISB|               SWAP                     2
+DISB|               GET_ITER
+DISB|       L2:     FOR_ITER                 9 (to L3)
+DISB|               STORE_DEREF              0 (i)
+DISB|               LOAD_FAST                0 (i)
+DISB|               BUILD_TUPLE              1
+DISB|               LOAD_CONST               1 (<code object <lambda> at 0x…, file "<probe>", line 1>)
+DISB|               MAKE_FUNCTION
+DISB|               SET_FUNCTION_ATTRIBUTE   8 (closure)
+DISB|               LIST_APPEND              2
+DISB|               JUMP_BACKWARD           11 (to L2)
+DISB|       L3:     END_FOR
+DISB|               POP_TOP
+DISB|       L4:     SWAP                     2
+DISB|               STORE_FAST               0 (i)
+DISB|               STORE_NAME               1 (lams)
+DISB|               RETURN_CONST             2 (None)
+DISB|
+DISB|  --   L5:     SWAP                     2
+DISB|               POP_TOP
+DISB|
+DISB|   1           SWAP                     2
+DISB|               STORE_FAST               0 (i)
+DISB|               RERAISE                  0
+DISB|ExceptionTable:
+DISB|  L1 to L4 -> L5 [2]
+DISC|  --           COPY_FREE_VARS           1
+DISC|
+DISC|   1           RESUME                   0
+DISC|               LOAD_DEREF               0 (i)
+DISC|               RETURN_VALUE
+DEREF 未修复 lambda 的读法 -> COPY_FREE_VARS LOAD_DEREF RESUME RETURN_VALUE
+CELLVARS 修复后外层帧 -> ()
+DISD|   0           RESUME                   0
+DISD|
+DISD|   1           LOAD_NAME                0 (range)
+DISD|               PUSH_NULL
+DISD|               LOAD_CONST               0 (3)
+DISD|               CALL                     1
+DISD|               GET_ITER
+DISD|               LOAD_FAST_AND_CLEAR      0 (i)
+DISD|               SWAP                     2
+DISD|       L1:     BUILD_LIST               0
+DISD|               SWAP                     2
+DISD|               GET_ITER
+DISD|       L2:     FOR_ITER                 8 (to L3)
+DISD|               STORE_FAST_LOAD_FAST     0 (i, i)
+DISD|               BUILD_TUPLE              1
+DISD|               LOAD_CONST               1 (<code object <lambda> at 0x…, file "<probe>", line 1>)
+DISD|               MAKE_FUNCTION
+DISD|               SET_FUNCTION_ATTRIBUTE   1 (defaults)
+DISD|               LIST_APPEND              2
+DISD|               JUMP_BACKWARD           10 (to L2)
+DISD|       L3:     END_FOR
+DISD|               POP_TOP
+DISD|       L4:     SWAP                     2
+DISD|               STORE_FAST               0 (i)
+DISD|               STORE_NAME               1 (fix)
+DISD|               RETURN_CONST             2 (None)
+DISD|
+DISD|  --   L5:     SWAP                     2
+DISD|               POP_TOP
+DISD|
+DISD|   1           SWAP                     2
+DISD|               STORE_FAST               0 (i)
+DISD|               RERAISE                  0
+DISD|ExceptionTable:
+DISD|  L1 to L4 -> L5 [2]
+DISE|  1           RESUME                   0
+DISE|              LOAD_FAST                0 (i)
+DISE|              RETURN_VALUE
+FAST 修复后 lambda 的读法 -> LOAD_FAST RESUME RETURN_VALUE

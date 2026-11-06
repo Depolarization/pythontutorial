@@ -1,0 +1,7 @@
+VERSION	3.14.7
+COPY1	b1=list(a) b2=copy.copy(a)：新外壳=True
+ID1	a[0]=0x1bb89978540 b1[0]=0x1bb89978540 b2[0]=0x1bb89978540 三方同一对象=True
+NESTED	a2=[[ [5] ]] 浅拷贝后：s2[0] is a2[0]=True  s2[0][0] is a2[0][0]=True
+EFFECT	通过浅拷贝改最内层 → 原始 a2[0][0][0] 跟着=99（共享 identity 的直接后果）
+ALIAS	x 被引用两次 → deepcopy 后 d[0] is d[1]=True（别名保留，不复制成两份）
+SELF-OK	3/3

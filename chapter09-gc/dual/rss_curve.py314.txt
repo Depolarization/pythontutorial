@@ -1,0 +1,27 @@
+PY 3.14.7
+RSS    GC开 起点 -> 15.8 MB
+RSS    GC开 i=10000 -> 15.9 MB
+RSS    GC开 i=20000 -> 15.9 MB
+RSS    GC开 i=30000 -> 15.9 MB
+RSS    GC开 i=40000 -> 15.9 MB
+RSS    GC开 i=50000 -> 15.9 MB
+RSS    GC开 i=60000 -> 15.9 MB
+RSS    GC开 i=70000 -> 15.9 MB
+RSS    GC开 i=80000 -> 15.9 MB
+RSS    GC开 i=90000 -> 15.9 MB
+RSS    GC开 i=100000 -> 15.9 MB
+DELTA  GC开 10 万对 -> +0.1 MB（自动回收兜住了）
+RSS    GC关 起点 -> 15.9 MB
+RSS    GC关 i=10000 -> 16.8 MB
+RSS    GC关 i=20000 -> 17.8 MB
+RSS    GC关 i=30000 -> 18.6 MB
+RSS    GC关 i=40000 -> 19.6 MB
+RSS    GC关 i=50000 -> 20.5 MB
+RSS    GC关 i=60000 -> 21.4 MB
+RSS    GC关 i=70000 -> 22.3 MB
+RSS    GC关 i=80000 -> 23.3 MB
+RSS    GC关 i=90000 -> 24.2 MB
+RSS    GC关 i=100000 -> 25.1 MB
+DELTA  GC关 10 万对 -> +9.1 MB（没人收，只能堆着）
+COLLECT 一次全量 -> 收回 200734 个对象；RSS 25.1 → 25.1 MB
+NOTE  对象还了，RSS 没降 -> pymalloc 池子留给下次复用，不急着还给系统

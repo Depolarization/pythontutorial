@@ -1,0 +1,16 @@
+[_pkgdemo] __init__ 执行（第 1 次）
+[_pkgdemo.mod_b] 模块体执行（被 __init__ 的 side-effect 拉进来）
+PKG-INIT-EXEC -> 1
+SIDE-EFFECT-MOD-B -> True
+PKG-VERSION -> 1.0
+PKG-FILE -> D:\Agent\video\video-projects\py-topic08-import\src\_pkgdemo\__init__.py
+[_pkgdemo.mod_a] 模块体执行
+INIT-AFTER-SUB -> 1
+SUB-NAME -> mod_a
+PKG-ATTR-AUTO -> True
+REL-IMPORT -> mod_b
+[_pkgdemo2] __init__ 执行（第 2 次）
+[_pkgdemo2.mod_a] 模块体执行（探针第一条 import 就是它，父包 __init__ 仍先跑）
+PKG2-INIT-EXEC -> 2
+PKG2-SUB-NAME -> pkg2_mod_a
+FROM-PKG-MOD -> mod_b

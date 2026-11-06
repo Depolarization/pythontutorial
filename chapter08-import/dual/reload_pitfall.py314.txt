@@ -1,0 +1,17 @@
+[reload_target] 模块体第 1 次执行，TOKEN=v1
+EXEC-FIRST -> 1
+TOKEN-FIRST -> v1
+CAPTURED-TOKEN -> v1
+[reload_target] 模块体第 2 次执行，TOKEN=v2
+EXEC-AFTER -> 2
+MODULE-SAME-OBJ -> True
+DICT-SAME-OBJ -> True
+TOKEN-NOW -> v2
+CAPTURED-STILL -> v1
+CLS-OLD-IS-NEW -> False
+FN-OLD-IS-NEW -> False
+INST-CLS-IS-NEW -> False
+OLD-INST-WHO -> Handler@v1
+NEW-INST-WHO -> Handler@v2
+REG-HOLDS-OLD -> Handler@v1
+OLD-FN-RETURNS -> Handler@v2

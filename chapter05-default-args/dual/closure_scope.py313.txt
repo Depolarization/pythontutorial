@@ -1,0 +1,11 @@
+EXPL -> 3.13.14
+LEAK for 循环后 -> 2
+COMP 引用 comp -> NameError: name 'comp' is not defined
+SHADOW listcomp -> 外面
+SHADOW genexp -> 外面
+SHADOW genexp vals -> [0, 1, 2]
+SHADOW for -> 2
+SCOPE latebind -> [2, 2, 2]
+SCOPE 隐藏局部 -> ('x',)
+SCOPE 独立嵌套函数 -> []
+SCOPE 闭包时变 cell -> ('i',)

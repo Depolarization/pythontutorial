@@ -1,0 +1,20 @@
+VERSION	3.13.14 (main, Jun 11 2026, 04:04:46) [MSC v.1944 64 bit (AMD64)]
+EXE	C:\Users\oscur\.workbuddy-ai\binaries\python\versions\3.13.12\python.exe
+IMPL	cpython 3.13.14.final.0
+HAS_GIL_API	True	（3.13 起才有这个接口）
+GIL_ENABLED	True
+SWITCH	5.0000 ms
+CORES	24
+BUILD_FLAG	Py_GIL_DISABLED=0	（编译期是否关掉 GIL）
+FT_BESIDE	没找到（默认构建目录里没有 t 版解释器）
+FT_PORTABLE	找到 D:\Agent\tmp\py-topic10\ft\python3.14t.exe
+DIS_BEGIN
+DIS	 15           RESUME                   0
+DIS	
+DIS	 17           LOAD_GLOBAL              0 (X)
+DIS	              LOAD_CONST               1 (1)
+DIS	              BINARY_OP               13 (+=)
+DIS	              STORE_GLOBAL             0 (X)
+DIS	              RETURN_CONST             0 (None)
+DIS_END
+NOTE	计数器和写回分属不同字节码，中间是一个可以切走的空隙；GIL 只保证单条字节码不被打断

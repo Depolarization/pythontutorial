@@ -1,0 +1,10 @@
+PY 3.13.14
+STEP1 对象已创建；现在 del LOG（模拟「全局名先没了」）
+DEL1  崩溃捕获 -> NameError: name 'LOG' is not defined
+STEP1 del f 已执行，上面一行就是捕获结果
+STEP2 全局 REPORT 先被置 None（解释器退出时全局就是先没的）
+DEL2  崩溃捕获 -> TypeError: 'NoneType' object is not callable
+STEP2 del s 已执行，上面一行就是捕获结果
+STEP3 LAST 留守到解释器退出——它的 __del__ 将在模块拆除后触发
+DONE  主程序结束，之后进入解释器退出流程（本探针退出码恒为 0）
+DEL1  崩溃捕获 -> NameError: name 'LOG' is not defined

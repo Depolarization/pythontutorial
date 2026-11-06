@@ -1,0 +1,11 @@
+VERSION	3.14.7	C:\Python314\python.exe
+PLAN	每请求 4.0 ms 模拟 I/O 等待，共 160 个请求，线程数 8
+NET	外部网络 www.python.org:443 可达（142 ms）—— 本探针不依赖它
+FILE	serial	1	0.721	1.00	655360
+FILE	thread	8	0.093	7.78	655360
+FILE	asyncio	8	0.110	6.55	655360
+SOCK	port	63749	0.000	0.00	0
+SOCK	serial	1	3.522	1.00	640
+SOCK	thread	8	0.372	9.48	640
+SOCK	asyncio	160	0.114	30.90	640
+CLEAN	临时目录已删除：D:\Agent\tmp\py-topic10\io_h6v_cr6p

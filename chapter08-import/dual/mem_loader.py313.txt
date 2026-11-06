@@ -1,0 +1,12 @@
+FAKE-HELLO -> hello from dict
+FAKE-CALL -> fake_mod.f()
+FAKE-SAME -> True
+[virt_mod] 模块体执行，源码来自内存字典
+VIRT-X -> 42
+VIRT-SQUARE -> 49
+VIRT-FILE -> <mem:virt_mod>
+VIRT-IN-MODULES -> True
+[zipmod] 模块体执行，__file__=D:\Agent\video\video-projects\py-topic08-import\src\_memdemo.zip\zipmod.py
+ZIP-WHO -> zipmod
+ZIP-GREET -> hello from zipmod in _memdemo.zip
+ZIP-FILE -> D:\Agent\video\video-projects\py-topic08-import\src\_memdemo.zip\zipmod.py

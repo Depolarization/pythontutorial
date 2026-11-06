@@ -1,0 +1,12 @@
+VERSION	3.13.14	C:\Users\oscur\.workbuddy-ai\binaries\python\versions\3.13.12\python.exe
+PAYLOAD	400000 条记录 × 3 字段
+DUMP	0.132 s	15071561 字节	14.4 MB
+LOAD	0.090 s	400000 条
+SIZEPER	每条记录 38 字节（pickle 后）
+THREAD	大对象	0.0000 s（同一进程内，零拷贝传引用）
+THREAD	小整数	0.0000 s
+PROC	小整数	0.0002 s
+PROC	大对象	0.2531 s（参数 pickle 一遍，返回值只回一个 len）
+PROC	大对象往返	0.5218 s（参数 + 返回值各 pickle 一遍）
+RATIO	大对象 ÷ 小整数	1053.7 倍
+CHECK	三条通道拿到的是同一个答案：True

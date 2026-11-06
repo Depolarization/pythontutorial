@@ -1,0 +1,15 @@
+VERSION	3.14.7
+NOTE	del a[0] 每次把后面全部元素前移一格（memmove）；popleft / del a[-1] 是 O(1)
+BENCH	n=10000 del a[0]  k=5000 median=0.009s per=1.76us
+BENCH	n=10000 popleft   k=5000 median=0.000s per=0.03us
+BENCH	n=10000 del a[-1] k=5000 median=0.000s per=0.03us
+BENCH	n=50000 del a[0]  k=25000 median=0.209s per=8.36us
+BENCH	n=50000 popleft   k=25000 median=0.001s per=0.04us
+BENCH	n=50000 del a[-1] k=25000 median=0.001s per=0.03us
+BENCH	n=100000 del a[0]  k=50000 median=0.849s per=16.98us
+BENCH	n=100000 popleft   k=50000 median=0.002s per=0.04us
+BENCH	n=100000 del a[-1] k=50000 median=0.001s per=0.03us
+RATIO	n=100000 每刀成本 del a[0] 是 popleft 的 424 倍
+LINEAR	n=10000→1.8us  n=50000→8.4us  n=100000→17.0us（规模×10 成本×10 → O(n)）
+FLAT	n=10000→0.03us  n=50000→0.04us  n=100000→0.04us（几乎不变 → O(1)）
+SELF-OK	2/2

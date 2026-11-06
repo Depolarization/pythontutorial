@@ -1,0 +1,8 @@
+PY 3.13.14
+WREF  持有强引用时 r() is u -> True
+WREF  del 后 r() -> None（弱引用自动变 None）
+STRONG 5000 个资源进 dict 缓存 -> 在册 3.46 MB
+STRONG 删光外部引用+gc 后 -> 缓存条目 5000（全还活着），在册 3.42 MB（几乎不动）
+STRONG 手动清空缓存后 -> 在册 0.00 MB（这时才还）
+WEAK   5000 个资源进 WeakValueDictionary（强引用在手） -> 条目 5000，在册 3.88 MB
+WEAK   删光外部引用+gc 后 -> 条目 0，在册 0.14 MB（当场释放）

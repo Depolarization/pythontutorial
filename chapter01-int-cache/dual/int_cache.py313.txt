@@ -1,0 +1,18 @@
+PY 3.13.14
+TWICE -6    -> False
+TWICE -5    -> True
+TWICE 0     -> True
+TWICE 1     -> True
+TWICE 100   -> True
+TWICE 200   -> True
+TWICE 256   -> True
+TWICE 257   -> False
+TWICE 258   -> False
+TWICE 1000  -> False
+RANGE 扫描 -10..299 -> -5..256
+CROSS 200 两个函数 -> True
+CROSS 257 两个函数 -> True
+REF 256          -> 4294967295
+REF 257          -> 6
+REF big(2**40)   -> 4
+REF big 8个引用后 -> 12（+8）

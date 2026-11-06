@@ -1,0 +1,20 @@
+[cyc_a] 模块体开始执行
+CYC-PARTIAL -> _cyc_a 在 sys.modules（半成品），业务键=无
+CYC-ERROR -> ImportError: cannot import name 'X' from '_cyc_a' (consider renaming 'D:\\Agent\\video\\video-projects\\py-topic08-import\\src\\_cyc_a.py' if it has the same name as a library you intended to import)
+CYC-A-IN-MODULES -> False
+CYC-B-IN-MODULES -> False
+[_cycpkg] __init__ 执行
+CYC-PKG-PARTIAL -> 在 sys.modules（半成品），业务键=无
+CYC-PKG-ERROR -> ImportError: cannot import name 'X' from partially initialized module '_cycpkg.a' (most likely due to a circular import) (D:\Agent\video\video-projects\py-topic08-import\src\_cycpkg\a.py)
+CYC-FRESH-START -> _cyc_a 还不在 sys.modules，本次 from-import 触发完整加载
+[cyc_a] 模块体开始执行
+[cyc_a] 模块体执行完毕，X='A.X'
+[cyc_b] 拿到 X = 'A.X'
+ENTRY-B-Y -> B.Y
+ENTRY-B-SEES-X -> A.X
+ENTRY-B-A-FULL -> True
+ENTRY-B-IN-MODULES -> True
+FIX1-RESULT -> A.X
+FIX2-RESULT -> A.X
+FIX3-A -> a sees COMMON.X
+FIX3-B -> b sees COMMON.X

@@ -1,0 +1,37 @@
+VERSION	3.13.14
+BASE	空 list getsizeof=56 字节（纯头部），每槽位 8 字节
+STEP	len=1 cap=4 bytes=88
+STEP	len=5 cap=8 bytes=120
+STEP	len=9 cap=16 bytes=184
+STEP	len=17 cap=24 bytes=248
+STEP	len=25 cap=32 bytes=312
+STEP	len=33 cap=40 bytes=376
+STEP	len=41 cap=52 bytes=472
+STEP	len=53 cap=64 bytes=568
+STEP	len=65 cap=76 bytes=664
+STEP	len=77 cap=92 bytes=792
+STEP	len=93 cap=108 bytes=920
+STEP	len=109 cap=128 bytes=1080
+STEP	len=129 cap=148 bytes=1240
+STEP	len=149 cap=172 bytes=1432
+STEP	len=173 cap=200 bytes=1656
+STEP	len=201 cap=232 bytes=1912
+LADDER	4>8>16>24>32>40>52>64>76>92>108>128>148>172>200>232
+FIT	len=1 实测cap=4 新公式(3.12+)=4 旧公式(3.11-)=4 新公式命中
+FIT	len=5 实测cap=8 新公式(3.12+)=8 旧公式(3.11-)=8 新公式命中
+FIT	len=9 实测cap=16 新公式(3.12+)=16 旧公式(3.11-)=16 新公式命中
+FIT	len=17 实测cap=24 新公式(3.12+)=24 旧公式(3.11-)=25 新公式命中
+FIT	len=25 实测cap=32 新公式(3.12+)=32 旧公式(3.11-)=34 新公式命中
+FIT	len=33 实测cap=40 新公式(3.12+)=40 旧公式(3.11-)=43 新公式命中
+FIT	len=41 实测cap=52 新公式(3.12+)=52 旧公式(3.11-)=52 新公式命中
+FIT	len=53 实测cap=64 新公式(3.12+)=64 旧公式(3.11-)=65 新公式命中
+FIT	len=65 实测cap=76 新公式(3.12+)=76 旧公式(3.11-)=79 新公式命中
+FIT	len=77 实测cap=92 新公式(3.12+)=92 旧公式(3.11-)=92 新公式命中
+FIT	len=93 实测cap=108 新公式(3.12+)=108 旧公式(3.11-)=110 新公式命中
+FIT	len=109 实测cap=128 新公式(3.12+)=128 旧公式(3.11-)=128 新公式命中
+FIT	len=129 实测cap=148 新公式(3.12+)=148 旧公式(3.11-)=151 新公式命中
+FIT	len=149 实测cap=172 新公式(3.12+)=172 旧公式(3.11-)=173 新公式命中
+FIT	len=173 实测cap=200 新公式(3.12+)=200 旧公式(3.11-)=200 新公式命中
+FIT	len=201 实测cap=232 新公式(3.12+)=232 旧公式(3.11-)=232 新公式命中
+FIT-SUM	共 16 档：新公式(3.12+)命中 16 档，旧公式(3.11-)命中 8 档
+SELF-OK	16/16

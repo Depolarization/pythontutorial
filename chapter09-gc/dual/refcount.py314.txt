@@ -1,0 +1,14 @@
+PY 3.14.7
+REF fresh 仅1个引用 -> getrefcount=2，真计数=1
+REF 挂进1个列表   -> getrefcount=3
+REF 再挂4个槽位   -> getrefcount=7
+REF 别名删光      -> getrefcount=2（回到真计数 1 + 偏移 1）
+OFFSET 偏移       -> 恒为 +1（传入 getrefcount 的临时参数引用）
+GCOFF GC 状态 -> disabled（已手动关闭）
+ALIVE <局部对象> 还在函数里
+DEL  <局部对象> 引用归零，立刻回收
+CALL  函数已返回 -> returned（上一行应是 DEL）
+DELCALL o 已创建，马上执行 del o
+DEL  <del对象> 引用归零，立刻回收
+DELCALL del 执行完毕（上一行应是 DEL）
+GCON  GC 恢复 -> enabled

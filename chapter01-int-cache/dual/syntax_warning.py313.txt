@@ -1,0 +1,9 @@
+PY 3.13.14
+W x is 257 -> SyntaxWarning: "is" with 'int' literal. Did you mean "=="?
+W x is 'py' -> SyntaxWarning: "is" with 'str' literal. Did you mean "=="?
+W x is (1, 2) -> SyntaxWarning: "is" with 'tuple' literal. Did you mean "=="?
+W x == 257 -> 无警告
+W x is y -> 无警告
+W x is None -> 无警告
+W x is True -> 无警告
+ERR -W error 模式 -> 升级成 SyntaxError: "is" with 'int' literal. Did you mean "=="?

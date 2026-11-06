@@ -1,0 +1,10 @@
+VERSION	3.14.7
+DATA-VS-INST -> '描述符的值'
+NONDATA-VS-INST -> '实例字典的值'
+PROPERTY-NOSETTER -> AttributeError: property 'v' of 'P' object has no setter
+PROPERTY-INST-DICT -> {}
+SUBCLASS-GET -> 'Q.get'
+SUBCLASS-SET -> AttributeError: property 'v' of 'Q' object has no setter
+PARENT-STILL-WORKS -> 5（父类的 setter 一直都在）
+SUBCLASS-INST-DICT -> 'Q.get'
+Q-V-TYPE -> property

@@ -1,0 +1,12 @@
+VERSION	3.14.7	C:\Python314\python.exe
+CORES	os.cpu_count()=24
+WORKLOAD	8 个区间 × 60000 宽 = 数到 480002；每种配置跑 3 轮取最快
+CFG	serial	1	0.901	1.00	40005	0.000
+CFG	thread	1	0.911	0.99	40005	0.000
+CFG	thread	2	0.910	0.99	40005	0.000
+CFG	thread	4	1.107	0.81	40005	0.000
+CFG	thread	8	1.176	0.77	40005	0.000
+CFG	proc	2	0.537	1.68	40005	0.092
+CFG	proc	4	0.391	2.30	40005	0.094
+CFG	proc	8	0.310	2.90	40005	0.093
+CHECK	九种配置数出的质数总数是否相同：是

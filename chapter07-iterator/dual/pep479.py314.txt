@@ -1,0 +1,10 @@
+PY 3.14.7
+FORLIKE -> [1, 2, 3]
+FORLAW  -> for 循环只认一个信号：StopIteration = 我完了
+OLDDEMO -> [10, 20]（外层 for 分不清「正常耗尽」和「内部事故」，静默收工）
+PEP479  -> RuntimeError: generator raised StopIteration
+NEXTIN  -> RuntimeError: generator raised StopIteration（生成器里 next 空迭代器同罪）
+NEXTOK 1 -> 1
+NEXTOK 2 -> 'DEFAULT'（正常耗尽，default 兜住）
+NEXTBAD 1 -> 1
+NEXTBAD 2 -> RuntimeError: generator raised StopIteration（default 兜不住内部 raise）

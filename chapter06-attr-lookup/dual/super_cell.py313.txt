@@ -1,0 +1,10 @@
+VERSION	3.13.14
+COOP ORDER -> D B C A
+COOP A-TIMES -> 1
+DIRECT ORDER -> D B A C A
+DIRECT A-TIMES -> 2
+SKIP ORDER -> D
+SKIP BCA-TIMES -> 0
+CLASS-CELL -> Show 的方法
+CELL-BORROW -> RuntimeError: super(): __class__ cell not found
+CELL-RENAME -> A（零参数 super 照常工作）

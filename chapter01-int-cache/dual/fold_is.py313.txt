@@ -1,0 +1,13 @@
+PY 3.13.14
+WARN -> SyntaxWarning: "is" with 'int' literal. Did you mean "=="?
+A 同一表达式 257 is 257 -> True
+B 同一函数体 a=257; b=257; a is b -> True
+C1 同一函数两次调用 f1() is f1() -> True
+C2 两个不同函数 f1() is f2() -> True
+D1 模块级列表 L[0] is L[1] -> True
+D2 模块列表 vs 函数 L[0] is f1() -> True
+WARN -> SyntaxWarning: "is" with 'int' literal. Did you mean "=="?
+E1 REPL 式 x=257 后再问 x is 257 -> False
+E2 REPL 式 同段 x=257; y=257; x is y -> True
+F1 同一文件定义 f1 is f2 -> True
+F2 逐行定义   f3() is f4() -> False
